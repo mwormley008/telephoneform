@@ -1,6 +1,8 @@
-from app import app
+from app import app, db
 from flask import render_template, redirect, url_for, flash
+# from fake_data import posts
 from app.forms import SignUpForm
+from app.models import User
 
 # Homepage
 @app.route('/')
@@ -25,6 +27,7 @@ def signup():
         print(first_name, last_name, phoneno, address)
         # I think this will make it work for what's wanted but
         # I need to keep looking at it
+        new_user = User(first_name=first_name, last_name=last_name, phoneno=phoneno, address=address)
         flash(f"Thank you {first_name} for signing up!", "success")
         return redirect(url_for('index'))
     return render_template('signup.html', form=form)

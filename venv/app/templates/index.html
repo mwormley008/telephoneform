@@ -5,7 +5,18 @@
 {% block header %}
     <h1>Welcome to the Michael's Telephone Website</h1>
 
-{% endblock %}
+    {% extends 'base.html' %}
+
+    {% block title %} Home {% endblock %}
+    
+    {% block header %}
+        <h1>Welcome to the Kekambas Blog</h1>
+        {% if current_user.is_authenticated %}
+            <h5>Nice to see you again, {{ current_user.username }}!</h5>
+        {% else %}
+            <h5>Please Sign Up or Log In to Create New Posts</h5>
+        {% endif %}
+    {% endblock %}
 
 {% block content %}
     <div class="row">

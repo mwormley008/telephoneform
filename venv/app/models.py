@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     phoneno = db.Column(db.String(75), nullable=False, unique=True)
     address = db.Column(db.String(75), nullable=False, unique=True)
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    posts = db.relationship('Post', backref='author')
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

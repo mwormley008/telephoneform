@@ -1,3 +1,6 @@
+import sys
+sys.path.append(r'C:\Users\throw\Desktop\coding-temple\week6\day2\FlashTelephoneHomework')
+
 from flask import Flask
 # Import thelass from the config module that has the app configurations like SECRET_KEY, etc
 from config import Config
